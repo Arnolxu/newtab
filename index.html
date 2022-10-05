@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>New Tab</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main>
     <div class="main">
@@ -21,52 +23,90 @@
       <div class="sites">
         <a href="https://www.tccb.gov.tr/assets/dosya/istiklalmarsi_metin.pdf" class="site green bigsite">
           <img src="go-next-symbolic.svg" alt="" style="transform: scaleX(-1);">
-          <span>Istiklal Marsi</span>
+          <span><u>I</u>stiklal Marsi</span>
           <img src="go-next-symbolic.svg" alt="">
         </a>
         <a href="http://txti.es" class="site orange">
           <img src="go-next-symbolic.svg" alt="" style="transform: scaleX(-1);">
-          <span>txti</span>
+          <span><u>t</u>xti</span>
         </a>
         <a href="https://teteos.net" class="site orange">
-          <span>TeTeOS.Net</span>
+          <span>T<u>e</u>TeOS.Net</span>
           <img src="go-next-symbolic.svg" alt="">
         </a>
         <a href="https://qolang.camroku.tech" class="site">
           <img src="go-next-symbolic.svg" alt="" style="transform: scaleX(-1);">
-          <span>QoLang</span>
+          <span><u>Q</u>oLang</span>
         </a>
         <a href="https://github.com" class="site">
-          <span>GitHub</span>
+          <span><u>G</u>itHub</span>
           <img src="go-next-symbolic.svg" alt="">
         </a>
         <a href="https://youtube.com" class="site red">
           <img src="go-next-symbolic.svg" alt="" style="transform: scaleX(-1);">
-          <span>YouTube</span>
+          <span><u>Y</u>ouTube</span>
         </a>
         <a href="https://mail.google.com/mail/u/0" class="site red">
-          <span>Google Mail</span>
+          <span>Google <u>M</u>ail</span>
           <img src="go-next-symbolic.svg" alt="">
         </a>
         <p style="color:#afafaf; margin: 10px;">Image: Midjourney AI</p>
-    </div>
+      </div>
   </main>
   <script>
-function currentTime() {
-  let date = new Date(); 
-  let hh = date.getHours();
-  let mm = date.getMinutes();
+    function currentTime() {
+      let date = new Date();
+      let hh = date.getHours();
+      let mm = date.getMinutes();
 
-  hh = (hh < 10) ? "0" + hh : hh;
-  mm = (mm < 10) ? "0" + mm : mm;
-    
-  let time = hh + ":" + mm;
+      hh = (hh < 10) ? "0" + hh : hh;
+      mm = (mm < 10) ? "0" + mm : mm;
 
-  document.getElementById("clock").innerText = time; 
-  let t = setTimeout(function(){ currentTime() }, 1000);
-}
+      let time = hh + ":" + mm;
 
-currentTime();
+      document.getElementById("clock").innerText = time;
+      let t = setTimeout(function () { currentTime() }, 1000);
+    }
+
+    currentTime();
+
+    function checkTabPress(e) {
+      'use strict';
+      var ele = document.activeElement;
+
+      if (ele.nodeName.toLowerCase() !== 'input') {
+        switch (e.keyCode) {
+          case 89: // Y
+            location.href = "https://youtube.com";
+            break;
+          case 73: // I
+            location.href = "https://www.tccb.gov.tr/assets/dosya/istiklalmarsi_metin.pdf";
+            break;
+          case 84: // T
+            location.href = "http://txti.es";
+            break;
+          case 69: // E
+            location.href = "https://teteos.net";
+            break;
+          case 81: // Q
+            location.href = "https://qolang.camroku.tech";
+            break;
+          case 71: // G
+            location.href = "https://github.com";
+            break;
+          case 77: // M
+            location.href = "https://mail.google.com/mail/u/0";
+            break;
+          default:
+            break;
+        }
+      }
+    }
+
+    document.addEventListener('keyup', function (e) {
+      checkTabPress(e);
+    }, false);
   </script>
 </body>
+
 </html>
